@@ -396,3 +396,22 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/.idea.GC-tp-bnr-Tool.iml
+/contentModel.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+/.idea/
