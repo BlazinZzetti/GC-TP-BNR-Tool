@@ -18,6 +18,7 @@ namespace GC_tp_bnr_Tool
         public Form1()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 2;
         }
 
         private int Display8BitAs5BitColor(int originalIntColor, int startBit, int endBit)
@@ -87,7 +88,7 @@ namespace GC_tp_bnr_Tool
 
         private void LoadTpFileBytesToPicture()
         {
-            if(tpFileBytes.Length == 2048 || tpFileBytes.Length == 6144)
+            if(tpFileBytes != null && (tpFileBytes.Length == 2048 || tpFileBytes.Length == 6144))
             {
                 var width = 32 * tpFileBytes.Length / 2048;
                 var height = 32;
@@ -153,7 +154,7 @@ namespace GC_tp_bnr_Tool
                     }
                 }
 
-                var outputScale = 1;
+                var outputScale = comboBox1.SelectedIndex + 1;
                 var processedImage = new Bitmap(width * outputScale, height * outputScale);
 
                 using (Graphics g = Graphics.FromImage(processedImage))
@@ -290,6 +291,16 @@ namespace GC_tp_bnr_Tool
 
             pictureBox1.Image = null;
             LoadTpFileBytesToPicture();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadTpFileBytesToPicture();
+        }
+
+        private void pictureBox1_SizeChanged(object sender, EventArgs e)
+        {
+            //Who is changing the size?
         }
     }
 }
